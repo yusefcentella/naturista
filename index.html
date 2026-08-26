@@ -85,8 +85,8 @@
                 <a href="#contacto" class="hover:text-gold transition-colors">Ubicación</a>
             </nav>
             <div class="flex items-center space-x-3">
-                <button onclick="openAdminModal()" class="bg-forest-sage text-forest hover:bg-forest hover:text-white px-3 py-2 rounded-full text-xs font-semibold uppercase tracking-wider flex items-center space-x-1.5 transition-all border border-forest/20" title="Gestionar Productos y Logotipo">
-                    <i class="fa-solid fa-gear"></i>
+                <button onclick="openAdminLoginModal()" class="bg-forest-sage text-forest hover:bg-forest hover:text-white px-3 py-2 rounded-full text-xs font-semibold uppercase tracking-wider flex items-center space-x-1.5 transition-all border border-forest/20" title="Acceso Exclusivo Administrador">
+                    <i class="fa-solid fa-lock"></i>
                     <span class="hidden sm:inline">Admin</span>
                 </button>
                 <a href="https://wa.me/529621058115?text=Hola,%20vengo%20de%20su%20sitio%20web%20y%20deseo%20consultar%20disponibilidad." target="_blank" class="bg-forest hover:bg-forest-light text-white px-4 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider flex items-center space-x-2 shadow-md transition-all transform hover:scale-105">
@@ -236,41 +236,33 @@
                         <img id="footerLogoImg" src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=100&q=80" alt="Logo" class="w-full h-full object-cover">
                     </div>
                     <span class="font-serif text-xl font-bold text-gold tracking-wide">ESPACIO NATURAL</span>
+    <!-- Admin Login / Passcode Modal -->
+    <div id="adminLoginModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-forest/10">
+            <div class="flex justify-between items-center mb-6 border-b pb-4">
+                <div>
+                    <h3 class="font-serif text-xl font-bold text-forest">Acceso Restringido</h3>
+                    <p class="text-gray-500 text-xs">Solo para la administración del sitio.</p>
                 </div>
-                <p class="text-gray-300 text-sm leading-relaxed">
-                    Tienda naturista y orientación psicológica en San Dionisio Ocotepec. Tu salud en manos confiables y cercanas.
-                </p>
-                <div class="text-xs text-gray-400">
-                    * Los suplementos no sustituyen el diagnóstico médico.
-                </div>
-            </div>
-            <div class="space-y-3">
-                <h4 class="font-serif font-bold text-lg text-gold mb-2">Visítanos y Escríbenos</h4>
-                <p class="text-sm text-gray-300 flex items-start gap-2">
-                    <i class="fa-solid fa-location-dot text-gold mt-1"></i>
-                    <span>San Dionisio Ocotepec, Barrio del Centro, Oaxaca, México.</span>
-                </p>
-                <p class="text-sm text-gray-300 flex items-center gap-2">
-                    <i class="fa-brands fa-whatsapp text-gold"></i>
-                    <span>WhatsApp: 962 105 8115</span>
-                </p>
-                <p class="text-sm text-gray-300 flex items-center gap-2">
-                    <i class="fa-solid fa-clock text-gold"></i>
-                    <span>Consulta disponibilidad antes de tu visita.</span>
-                </p>
+                <button onclick="closeAdminLoginModal()" class="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-600 transition">
+                    <i class="fa-solid fa-xmark text-sm"></i>
+                </button>
             </div>
             <div class="space-y-4">
-                <h4 class="font-serif font-bold text-lg text-gold mb-2">Pedido Rápido</h4>
-                <p class="text-sm text-gray-300">¿Tienes dudas sobre algún suplemento, té o servicio psicológico? Escríbenos directamente.</p>
-                <a href="https://wa.me/529621058115?text=Hola,%20me%20gustaría%20pedir%20información%20sobre%20sus%20productos." target="_blank" class="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-forest-dark font-bold px-6 py-3 rounded-xl text-xs uppercase tracking-widest transition shadow-md">
-                    <i class="fa-brands fa-whatsapp text-lg"></i> Abrir WhatsApp
-                </a>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-700 mb-1">Contraseña de Administrador (PIN)</label>
+                    <input type="password" id="adminPinInput" placeholder="Ingresa PIN (ej. 1234)" class="w-full px-4 py-3 bg-ivory border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-forest">
+                    <p class="text-[11px] text-gray-400 mt-1">PIN por defecto: <span class="font-bold text-forest">1234</span> (puedes cambiarlo dentro del panel)</p>
+                </div>
+                <div id="loginErrorMsg" class="hidden text-red-600 text-xs font-semibold bg-red-50 p-2.5 rounded-xl border border-red-200">
+                    Contraseña incorrecta. Intenta nuevamente.
+                </div>
+                <button onclick="verifyAdminPin()" class="w-full bg-forest hover:bg-forest-dark text-white font-bold py-3 rounded-xl uppercase tracking-wider text-xs transition shadow-md">
+                    Entrar al Panel
+                </button>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto border-t border-white/10 mt-12 pt-6 text-center text-xs text-gray-400">
-            &copy; 2026 Espacio Natural de Yusef. Todos los derechos reservados. Naturalmente tú, plenamente tú.
-        </div>
-    </footer>
+    </div>
 
     <!-- Admin Management Modal -->
     <div id="adminModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4 overflow-y-auto">
@@ -278,17 +270,17 @@
             <div class="flex justify-between items-center mb-6 border-b pb-4">
                 <div>
                     <h3 class="font-serif text-2xl font-bold text-forest">Panel de Administración</h3>
-                    <p class="text-gray-500 text-xs">Gestiona la información del sitio y el catálogo de productos.</p>
+                    <p class="text-gray-500 text-xs">Gestión exclusiva de logotipo, inventario y seguridad.</p>
                 </div>
                 <button onclick="closeAdminModal()" class="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-600 transition">
                     <i class="fa-solid fa-xmark text-lg"></i>
                 </button>
             </div>
 
-            <!-- Site Settings Configuration -->
+            <!-- Site Settings & Security Configuration -->
             <div class="bg-forest-sage/40 p-4 rounded-2xl mb-6 space-y-4">
                 <h4 class="font-bold text-forest text-sm uppercase tracking-wider flex items-center gap-2">
-                    <i class="fa-solid fa-image"></i> Logotipo del Sitio
+                    <i class="fa-solid fa-shield-halved"></i> Configuración y Seguridad
                 </h4>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
@@ -300,9 +292,17 @@
                         <input type="file" id="adminLogoFile" accept="image/*" onchange="handleLogoUpload(event)" class="w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-forest file:text-white hover:file:bg-forest-dark cursor-pointer">
                     </div>
                 </div>
-                <button onclick="saveSiteSettings()" class="bg-forest hover:bg-forest-dark text-white text-xs font-bold px-4 py-2 rounded-xl transition shadow">
-                    Guardar Cambios de Logo
-                </button>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">Cambiar PIN de Administrador</label>
+                        <input type="text" id="adminNewPin" placeholder="Nuevo PIN de acceso" class="w-full px-3 py-2 bg-white border border-gray-300 rounded-xl text-xs focus:ring-2 focus:ring-forest">
+                    </div>
+                    <div class="flex items-end">
+                        <button onclick="saveSiteSettings()" class="w-full bg-forest hover:bg-forest-dark text-white text-xs font-bold px-4 py-2.5 rounded-xl transition shadow">
+                            Guardar Cambios y PIN
+                        </button>
+                    </div>
+                </div>
             </div>
 
             <!-- Add / Edit Product Form -->
@@ -413,7 +413,7 @@
         ];
 
         let products = JSON.parse(localStorage.getItem('espacio_natural_products')) || defaultProducts;
-        let siteSettings = JSON.parse(localStorage.getItem('espacio_natural_settings')) || { logoUrl: '' };
+        let siteSettings = JSON.parse(localStorage.getItem('espacio_natural_settings')) || { logoUrl: '', pin: '1234' };
         let currentCategory = 'Todos';
         let searchQuery = '';
 
@@ -427,6 +427,9 @@
                 document.getElementById('headerLogoImg').src = siteSettings.logoUrl;
                 document.getElementById('footerLogoImg').src = siteSettings.logoUrl;
                 document.getElementById('adminLogoUrl').value = siteSettings.logoUrl;
+            }
+            if (!siteSettings.pin) {
+                siteSettings.pin = '1234';
             }
         }
 
@@ -446,9 +449,38 @@
 
         function saveSiteSettings() {
             siteSettings.logoUrl = document.getElementById('adminLogoUrl').value;
+            const newPin = document.getElementById('adminNewPin').value.trim();
+            if (newPin) {
+                siteSettings.pin = newPin;
+                document.getElementById('adminNewPin').value = '';
+                alert('¡Configuración y nuevo PIN de administrador guardados exitosamente!');
+            } else {
+                alert('¡Logotipo guardado exitosamente!');
+            }
             localStorage.setItem('espacio_natural_settings', JSON.stringify(siteSettings));
             applySiteSettings();
-            alert('¡Logotipo guardado exitosamente!');
+        }
+
+        function openAdminLoginModal() {
+            document.getElementById('adminPinInput').value = '';
+            document.getElementById('loginErrorMsg').classList.add('hidden');
+            document.getElementById('adminLoginModal').classList.remove('hidden');
+        }
+
+        function closeAdminLoginModal() {
+            document.getElementById('adminLoginModal').classList.add('hidden');
+        }
+
+        function verifyAdminPin() {
+            const enteredPin = document.getElementById('adminPinInput').value.trim();
+            const correctPin = siteSettings.pin || '1234';
+
+            if (enteredPin === correctPin) {
+                closeAdminLoginModal();
+                openAdminModal();
+            } else {
+                document.getElementById('loginErrorMsg').classList.remove('hidden');
+            }
         }
 
         function renderProducts() {
