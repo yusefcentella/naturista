@@ -1,3 +1,4 @@
+<!-- ... STREAMING_CHUNK:Initializing HTML structure with responsive meta tags and Tailwind CSS... -->
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
@@ -55,26 +56,19 @@
         }
     </style>
 </head>
-<body class="bg-ivory text-gray-800 antialiased selection:bg-gold selection:text-white flex flex-col min-h-screen">
+<body class="bg-ivory text-gray-800 antialiased selection:bg-gold selection:text-white">
 
-    <!-- Top Announcement Bar -->
-    <div class="bg-forest-dark text-ivory text-xs py-2 px-4 text-center font-medium border-b border-forest/20">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1">
-            <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-gold"></i> San Dionisio Ocotepec, Barrio del Centro, Oaxaca, México</span>
-            <span class="flex items-center gap-1.5"><i class="fa-brands fa-whatsapp text-gold"></i> Pedidos directos: <a href="https://wa.me/529621058115" target="_blank" class="underline hover:text-gold transition">962 105 8115</a></span>
-        </div>
-    </div>
-
-    <!-- Main Navigation Header -->
     <header class="sticky top-0 z-50 bg-ivory/95 backdrop-blur-md border-b border-forest/10 shadow-sm transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3.5">
                 <div class="w-12 h-12 rounded-full overflow-hidden bg-white shadow-md border border-gold/50 flex-shrink-0 flex items-center justify-center p-0.5">
                     <img id="headerLogoImg" src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=150&q=80" alt="Logo Espacio Natural de Yusef" class="w-full h-full object-cover rounded-full" onerror="this.src='https://placehold.co/150x150/1A4D3A/C5A059?text=EN'">
                 </div>
-                <div>
-                    <h1 class="text-sm sm:text-base font-bold text-forest tracking-wide uppercase font-serif leading-tight">Espacio Natural</h1>
-                    <p class="text-[10px] text-gold-dark font-semibold tracking-widest uppercase">de Yusef</p>
+                <div class="flex items-center space-x-2">
+                    <div>
+                        <h1 class="text-sm sm:text-base font-bold text-forest tracking-wide uppercase font-serif">Espacio Natural</h1>
+                        <p class="text-[10px] text-gold-dark font-semibold tracking-widest uppercase">de Yusef</p>
+                    </div>
                 </div>
             </div>
             <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-forest">
@@ -85,8 +79,8 @@
                 <a href="#contacto" class="hover:text-gold transition-colors">Ubicación</a>
             </nav>
             <div class="flex items-center space-x-3">
-                <button onclick="openAdminLoginModal()" class="bg-forest-sage text-forest hover:bg-forest hover:text-white px-3 py-2 rounded-full text-xs font-semibold uppercase tracking-wider flex items-center space-x-1.5 transition-all border border-forest/20" title="Acceso Exclusivo Administrador">
-                    <i class="fa-solid fa-lock"></i>
+                <button onclick="openAdminModal()" class="bg-forest-sage text-forest hover:bg-forest hover:text-white px-3 py-2 rounded-full text-xs font-semibold uppercase tracking-wider flex items-center space-x-1.5 transition-all border border-forest/20" title="Gestionar Productos y Logotipo">
+                    <i class="fa-solid fa-gear"></i>
                     <span class="hidden sm:inline">Admin</span>
                 </button>
                 <a href="https://wa.me/529621058115?text=Hola,%20vengo%20de%20su%20sitio%20web%20y%20deseo%20consultar%20disponibilidad." target="_blank" class="bg-forest hover:bg-forest-light text-white px-4 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider flex items-center space-x-2 shadow-md transition-all transform hover:scale-105">
@@ -97,14 +91,13 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section id="inicio" class="hero-bg text-white py-20 lg:py-32 px-4 text-center relative overflow-hidden">
         <div class="max-w-4xl mx-auto relative z-10">
-            <span class="inline-block py-1.5 px-5 rounded-full bg-gold/20 text-gold-light border border-gold/30 text-xs tracking-widest uppercase mb-6 font-semibold backdrop-blur-sm">
-                🌿 Tienda Naturista & Apoyo Psicológico
+            <span class="inline-block py-1 px-4 rounded-full bg-gold/20 text-gold-light border border-gold/30 text-xs tracking-widest uppercase mb-6 font-semibold backdrop-blur-sm">
+                Salud Natural • Bienestar • Confianza
             </span>
             <h2 class="text-3xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight font-serif">
-                Naturalmente tú, <span class="text-gold italic">plenamente tú.</span>
+                Cuida tu cuerpo, alimenta tu mente, <span class="text-gold italic">transforma tu vida.</span>
             </h2>
             <p class="text-base sm:text-lg text-gray-200 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
                 Suplementos, vitaminas, minerales y remedios naturales seleccionados con responsabilidad en San Dionisio Ocotepec, Oaxaca.
@@ -121,12 +114,11 @@
         <div class="absolute bottom-0 left-0 right-0 h-12 bg-ivory" style="clip-path: ellipse(50% 100% at 50% 100%);"></div>
     </section>
 
-    <!-- Main Catalog Section -->
-    <main id="productos" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex-grow">
+    <main id="productos" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div class="text-center mb-12">
             <span class="text-xs font-bold text-gold-dark uppercase tracking-widest">Tienda Naturista</span>
             <h2 class="text-3xl sm:text-4xl font-bold text-forest mt-1 mb-3">Nuestros Productos Disponibles</h2>
-            <p class="text-gray-600 max-w-xl mx-auto text-sm sm:text-base">Consulta disponibilidad en tiempo real y realiza tu pedido directamente por WhatsApp con atención cálida.</p>
+            <p class="text-gray-600 max-w-xl mx-auto text-sm sm:text-base">Consulta disponibilidad en tiempo real antes de tu visita y pide seguimiento directamente por WhatsApp.</p>
         </div>
 
         <!-- Search and Category Filters -->
@@ -136,514 +128,598 @@
                 <span class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-400">
                     <i class="fa-solid fa-search"></i>
                 </span>
-                <input type="text" id="searchInput" oninput="filterProducts()" placeholder="Buscar suplemento, vitamina, planta..." class="w-full pl-11 pr-4 py-3 bg-ivory border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-forest transition-colors">
+                <input type="text" id="searchInput" placeholder="Buscar suplemento, vitamina, planta..." class="w-full pl-11 pr-4 py-3 bg-ivory border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-forest transition-colors">
             </div>
 
             <!-- Category Buttons -->
             <div class="flex flex-wrap items-center justify-center gap-2 w-full md:w-auto" id="categoryButtons">
-                <button onclick="setCategory('Todos')" class="category-btn active px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider bg-forest text-white transition-all shadow-sm">Todos</button>
-                <button onclick="setCategory('Suplementos')" class="category-btn px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider bg-forest-sage/50 text-forest hover:bg-forest hover:text-white transition-all">Suplementos</button>
-                <button onclick="setCategory('Herbolaria y Tés')" class="category-btn px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider bg-forest-sage/50 text-forest hover:bg-forest hover:text-white transition-all">Herbolaria y Tés</button>
-                <button onclick="setCategory('Orgánicos')" class="category-btn px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider bg-forest-sage/50 text-forest hover:bg-forest hover:text-white transition-all">Orgánicos</button>
-                <button onclick="setCategory('Aromaterapia')" class="category-btn px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider bg-forest-sage/50 text-forest hover:bg-forest hover:text-white transition-all">Aromaterapia</button>
+                <button data-category="todos" class="category-btn active px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider bg-forest text-white transition-all shadow-sm">Todos</button>
+                <button data-category="Suplementos" class="category-btn px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider bg-forest-sage/50 text-forest hover:bg-forest hover:text-white transition-all">Suplementos</button>
+                <button data-category="Herbolaria" class="category-btn px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider bg-forest-sage/50 text-forest hover:bg-forest hover:text-white transition-all">Herbolaria y Tés</button>
+                <button data-category="Minerales" class="category-btn px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider bg-forest-sage/50 text-forest hover:bg-forest hover:text-white transition-all">Minerales y Vitaminas</button>
+                <button data-category="Orgánicos" class="category-btn px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider bg-forest-sage/50 text-forest hover:bg-forest hover:text-white transition-all">Orgánicos</button>
             </div>
         </div>
 
-        <!-- Product Grid -->
+        <!-- Product Cards Grid -->
         <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Dynamically Rendered Products -->
+            <!-- Products loaded via JS -->
         </div>
 
-        <!-- Empty State -->
-        <div id="noProducts" class="hidden text-center py-16">
-            <div class="text-4xl text-gray-300 mb-3"><i class="fa-solid fa-box-open"></i></div>
-            <h3 class="font-bold text-gray-700 text-lg">No se encontraron productos</h3>
-            <p class="text-gray-500 text-sm">Intenta con otro término de búsqueda o categoría.</p>
+        <!-- Empty state message -->
+        <div id="noResults" class="hidden text-center py-16">
+            <i class="fa-solid fa-seedling text-4xl text-gold mb-3"></i>
+            <h3 class="text-xl font-bold text-forest">No encontramos productos con ese criterio</h3>
+            <p class="text-gray-500 text-sm mt-1">Intenta buscar con otra palabra o categoría.</p>
         </div>
     </main>
 
-    <!-- Mission & Vision Section -->
-    <section id="mision-vision" class="py-20 px-4 bg-white border-t border-b border-forest/10">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="text-xs font-bold text-gold-dark uppercase tracking-widest">Nuestra Esencia</span>
-                <h2 class="text-3xl sm:text-4xl font-bold text-forest mt-1 mb-3">Misión y Visión Comunitaria</h2>
-                <p class="text-gray-600 text-sm sm:text-base">Trabajamos cada día con el compromiso de ofrecerte confianza, cercanía y apoyo profesional.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <div class="bg-ivory p-8 sm:p-10 rounded-3xl border border-forest/10 relative overflow-hidden shadow-sm">
-                    <div class="w-14 h-14 bg-forest text-gold rounded-2xl flex items-center justify-center text-xl mb-6 shadow-md">
-                        <i class="fa-solid fa-bullseye"></i>
-                    </div>
-                    <h3 class="font-serif text-2xl font-bold text-forest mb-4">Nuestra Misión</h3>
-                    <p class="text-gray-700 leading-relaxed text-sm sm:text-base">
-                        Acercar a las familias de San Dionisio Ocotepec y comunidades cercanas suplementos, vitaminas y remedios naturales seleccionados con responsabilidad, a precios accesibles y con información clara — sin sustituir nunca la orientación médica profesional.
-                    </p>
+    <section id="mision-vision" class="bg-forest-sage/30 py-20 px-4 border-y border-forest/10">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+            <!-- Misión -->
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-forest/10 relative">
+                <div class="w-12 h-12 rounded-2xl bg-forest text-gold flex items-center justify-center text-xl mb-6 shadow-sm">
+                    <i class="fa-solid fa-bullseye"></i>
                 </div>
-                <div class="bg-ivory p-8 sm:p-10 rounded-3xl border border-forest/10 relative overflow-hidden shadow-sm">
-                    <div class="w-14 h-14 bg-gold text-forest dark:text-forest-dark rounded-2xl flex items-center justify-center text-xl mb-6 shadow-md">
-                        <i class="fa-solid fa-mountain-sun"></i>
+                <h3 class="text-2xl font-bold text-forest mb-4 font-serif">Nuestra Misión</h3>
+                <p class="text-gray-700 leading-relaxed text-sm sm:text-base">
+                    Acercar a las familias de San Dionisio Ocotepec y comunidades cercanas suplementos, vitaminas, minerales y productos naturales seleccionados con responsabilidad, a precios accesibles y con información clara — <strong class="text-forest">sin sustituir nunca la orientación de un profesional de la salud.</strong>
+                </p>
+            </div>
+
+            <!-- Visión -->
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-forest/10 relative">
+                <div class="w-12 h-12 rounded-2xl bg-forest text-gold flex items-center justify-center text-xl mb-6 shadow-sm">
+                    <i class="fa-solid fa-mountain-sun"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-forest mb-4 font-serif">Nuestra Visión</h3>
+                <p class="text-gray-700 leading-relaxed text-sm sm:text-base">
+                    Convertirnos gradualmente en la tienda naturista de referencia en San Dionisio Ocotepec: reconocida por la confianza, la atención y la calidad de sus productos, creciendo de manera responsable junto a nuestra comunidad.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="por-que-elegirnos" class="py-20 px-4 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <span class="text-xs font-bold text-gold-dark uppercase tracking-widest">Nuestra Diferencia</span>
+            <h2 class="text-3xl sm:text-4xl font-bold text-forest mt-1 mb-3 font-serif">¿Por qué elegirnos?</h2>
+            <p class="text-gray-600 max-w-xl mx-auto text-sm sm:text-base">Compromiso real con la economía, la salud y la cercanía de nuestra gente.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Card 1 -->
+            <div class="bg-white p-8 rounded-3xl border border-forest/10 shadow-sm flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-forest-sage text-forest flex items-center justify-center text-xl mb-6 font-bold">
+                        <i class="fa-solid fa-clock"></i>
                     </div>
-                    <h3 class="font-serif text-2xl font-bold text-forest mb-4">Nuestra Visión</h3>
-                    <p class="text-gray-700 leading-relaxed text-sm sm:text-base">
-                        Convertirnos en la tienda naturista y centro de bienestar de referencia en nuestra región: reconocida por la confianza, la atención cálida y la calidad de sus productos, creciendo junto a nuestra comunidad.
-                    </p>
+                    <h3 class="text-lg font-bold text-forest mb-3">Frente a farmacias</h3>
+                    <h4 class="text-sm font-semibold text-gold-dark mb-2">Tiempo real para explicarte</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed">Sin prisa de mostrador: te escuchamos y te explicamos el producto sin tecnicismos ni confusiones.</p>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-white p-8 rounded-3xl border border-forest/10 shadow-sm flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-forest-sage text-forest flex items-center justify-center text-xl mb-6 font-bold">
+                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-forest mb-3">Frente a tiendas de ciudad</h3>
+                    <h4 class="text-sm font-semibold text-gold-dark mb-2">Sin traslado, sin sobreprecio</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed">Precios pensados en la economía local. Pide y da seguimiento rápido y seguro desde tu WhatsApp.</p>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-white p-8 rounded-3xl border border-forest/10 shadow-sm flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-forest-sage text-forest flex items-center justify-center text-xl mb-6 font-bold">
+                        <i class="fa-solid fa-shield-heart"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-forest mb-3">Frente a vendedores informales</h3>
+                    <h4 class="text-sm font-semibold text-gold-dark mb-2">Tienda local, sin promesas milagrosas</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed">Producto verificable en persona. Información clara y transparente, no soluciones mágicas.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us Section -->
-    <section id="por-que-elegirnos" class="py-20 px-4 bg-forest-sage/30">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="text-xs font-bold text-gold-dark uppercase tracking-widest">Nuestra Ventaja</span>
-                <h2 class="text-3xl sm:text-4xl font-bold text-forest mt-1 mb-3">¿Por qué elegir Espacio Natural?</h2>
-                <p class="text-gray-600 text-sm sm:text-base">La diferencia de elegir un espacio cercano, humano y transparente.</p>
+    <footer id="contacto" class="bg-forest-dark text-white pt-16 pb-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+            <div>
+                <div class="flex items-center space-x-3 mb-4">
+                    <div class="w-10 h-10 rounded-full overflow-hidden bg-white text-forest-dark flex items-center justify-center font-bold flex-shrink-0">
+                        <img id="footerLogoImg" src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=150&q=80" alt="Logo Footer" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-lg font-bold uppercase tracking-wider font-serif">Espacio Natural de Yusef</h3>
+                </div>
+                <p class="text-xs text-gray-300 leading-relaxed">
+                    Suplementos, vitaminas y bienestar natural con responsabilidad y cercanía en Oaxaca.
+                </p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-forest/10">
-                    <div class="w-12 h-12 bg-forest-sage text-forest rounded-2xl flex items-center justify-center text-lg mb-6">
-                        <i class="fa-solid fa-comments"></i>
-                    </div>
-                    <h4 class="font-bold text-forest text-lg mb-2">Frente a farmacias convencionales</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed">Sin prisas de mostrador: te escuchamos con atención y resolvemos tus dudas con claridad y honestidad.</p>
-                </div>
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-forest/10">
-                    <div class="w-12 h-12 bg-forest-sage text-forest rounded-2xl flex items-center justify-center text-lg mb-6">
-                        <i class="fa-solid fa-piggy-bank"></i>
-                    </div>
-                    <h4 class="font-bold text-forest text-lg mb-2">Frente a tiendas de ciudad</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed">Sin traslados largos ni sobreprecios. Precios justos pensados en la economía de nuestra comunidad local.</p>
-                </div>
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-forest/10">
-                    <div class="w-12 h-12 bg-forest-sage text-forest rounded-2xl flex items-center justify-center text-lg mb-6">
-                        <i class="fa-solid fa-seedling"></i>
-                    </div>
-                    <h4 class="font-bold text-forest text-lg mb-2">Frente a vendedores informales</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed">Tienda establecida, con respaldo y productos verificables en persona, sin promesas falsas ni milagros.</p>
-                </div>
+            <div>
+                <h4 class="text-sm font-bold uppercase tracking-widest text-gold mb-4">Visítanos</h4>
+                <p class="text-sm text-gray-300 flex items-start space-x-3 mb-4">
+                    <i class="fa-solid fa-location-dot text-gold mt-1"></i>
+                    <span>San Dionisio Ocotepec, Barrio del Centro, Oaxaca, México.</span>
+                </p>
+                <a href="https://wa.me/529621058115?text=Hola,%20deseo%20pedir%20la%20dirección%20exacta%20y%20horario%20de%20hoy." target="_blank" class="inline-block bg-gold hover:bg-gold-light text-forest-dark px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-sm">
+                    Pedir dirección y horario
+                </a>
             </div>
-        </div>
-    </section>
-
-    <!-- Footer / Location Contact Section -->
-    <footer id="contacto" class="bg-forest text-ivory py-16 px-4">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div class="space-y-4">
-                <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 rounded-full overflow-hidden bg-white/10 flex items-center justify-center">
-                        <img id="footerLogoImg" src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=100&q=80" alt="Logo" class="w-full h-full object-cover">
-                    </div>
-                    <span class="font-serif text-xl font-bold text-gold tracking-wide">ESPACIO NATURAL</span>
-    <!-- Admin Login / Passcode Modal -->
-    <div id="adminLoginModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-forest/10">
-            <div class="flex justify-between items-center mb-6 border-b pb-4">
-                <div>
-                    <h3 class="font-serif text-xl font-bold text-forest">Acceso Restringido</h3>
-                    <p class="text-gray-500 text-xs">Solo para la administración del sitio.</p>
-                </div>
-                <button onclick="closeAdminLoginModal()" class="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-600 transition">
-                    <i class="fa-solid fa-xmark text-sm"></i>
-                </button>
-            </div>
-            <div class="space-y-4">
-                <div>
-                    <label class="block text-xs font-semibold text-gray-700 mb-1">Contraseña de Administrador (PIN)</label>
-                    <input type="password" id="adminPinInput" placeholder="Ingresa PIN (ej. 1234)" class="w-full px-4 py-3 bg-ivory border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-forest">
-                    <p class="text-[11px] text-gray-400 mt-1">PIN por defecto: <span class="font-bold text-forest">1234</span> (puedes cambiarlo dentro del panel)</p>
-                </div>
-                <div id="loginErrorMsg" class="hidden text-red-600 text-xs font-semibold bg-red-50 p-2.5 rounded-xl border border-red-200">
-                    Contraseña incorrecta. Intenta nuevamente.
-                </div>
-                <button onclick="verifyAdminPin()" class="w-full bg-forest hover:bg-forest-dark text-white font-bold py-3 rounded-xl uppercase tracking-wider text-xs transition shadow-md">
-                    Entrar al Panel
-                </button>
+            <div>
+                <h4 class="text-sm font-bold uppercase tracking-widest text-gold mb-4">Contacto y Pedidos</h4>
+                <p class="text-sm text-gray-300 flex items-center space-x-3 mb-2">
+                    <i class="fa-brands fa-whatsapp text-green-400 text-lg"></i>
+                    <span>962 105 8115 (WhatsApp)</span>
+                </p>
+                <p class="text-xs text-gray-400 mb-4">Consulta disponibilidad antes de tu visita.</p>
+                <a href="https://wa.me/529621058115?text=Hola,%20vengo%20de%20su%20web%20y%20quiero%20consultar%20disponibilidad." target="_blank" class="inline-block bg-forest hover:bg-forest-light text-white border border-white/20 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all">
+                    Consultar por WhatsApp
+                </a>
             </div>
         </div>
-    </div>
+        <div class="max-w-7xl mx-auto pt-8 border-t border-white/10 text-center text-xs text-gray-400 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>&copy; 2026 Espacio Natural de Yusef. Todos los derechos reservados.</p>
+            <button onclick="openAdminModal()" class="text-gold hover:underline text-xs">Administrar Catálogo y Logotipo</button>
+        </div>
+    </footer>
 
-    <!-- Admin Management Modal -->
     <div id="adminModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4 overflow-y-auto">
-        <div class="bg-white rounded-3xl max-w-3xl w-full p-6 sm:p-8 shadow-2xl border border-forest/10 max-h-[90vh] overflow-y-auto">
-            <div class="flex justify-between items-center mb-6 border-b pb-4">
+        <div class="bg-white rounded-3xl max-w-3xl w-full p-6 sm:p-8 shadow-2xl border border-forest/10 max-h-[90vh] flex flex-col">
+            <div class="flex items-center justify-between pb-4 border-b border-gray-100 mb-6">
                 <div>
-                    <h3 class="font-serif text-2xl font-bold text-forest">Panel de Administración</h3>
-                    <p class="text-gray-500 text-xs">Gestión exclusiva de logotipo, inventario y seguridad.</p>
+                    <h3 class="text-xl font-bold text-forest font-serif">Panel de Administración</h3>
+                    <p class="text-xs text-gray-500">Sube tu logotipo desde tu dispositivo, pega un enlace o gestiona productos.</p>
                 </div>
-                <button onclick="closeAdminModal()" class="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-600 transition">
+                <button onclick="closeAdminModal()" class="w-10 h-10 rounded-full bg-ivory text-gray-600 hover:bg-gray-200 flex items-center justify-center transition-colors">
                     <i class="fa-solid fa-xmark text-lg"></i>
                 </button>
             </div>
 
-            <!-- Site Settings & Security Configuration -->
-            <div class="bg-forest-sage/40 p-4 rounded-2xl mb-6 space-y-4">
-                <h4 class="font-bold text-forest text-sm uppercase tracking-wider flex items-center gap-2">
-                    <i class="fa-solid fa-shield-halved"></i> Configuración y Seguridad
-                </h4>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-semibold text-gray-700 mb-1">URL de la Imagen del Logo</label>
-                        <input type="text" id="adminLogoUrl" placeholder="https://..." class="w-full px-3 py-2 bg-white border border-gray-300 rounded-xl text-xs focus:ring-2 focus:ring-forest">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold text-gray-700 mb-1">O sube Logo desde tu Dispositivo</label>
-                        <input type="file" id="adminLogoFile" accept="image/*" onchange="handleLogoUpload(event)" class="w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-forest file:text-white hover:file:bg-forest-dark cursor-pointer">
-                    </div>
+            <!-- Logo Configuration Box with File Upload & URL -->
+            <div class="bg-ivory p-4 rounded-2xl border border-forest/10 mb-6">
+                <label class="block text-xs font-bold text-forest uppercase tracking-wider mb-2">Logotipo de la Tienda (Desde tu dispositivo o enlace)</label>
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <input type="file" id="logoFileInput" accept="image/*" onchange="handleLogoFileUpload(event)" class="file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-forest file:text-white hover:file:bg-forest-light text-xs text-gray-600 flex-1 border border-gray-200 rounded-xl bg-white p-1">
+                    <input type="text" id="logoUrlInput" placeholder="O pega el enlace web del logo aquí..." class="flex-1 px-3 py-2 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-forest">
+                    <button type="button" onclick="updateLogoUrl()" class="px-4 py-2 bg-forest hover:bg-forest-light text-white rounded-xl text-xs font-semibold uppercase tracking-wider transition-colors shadow-sm">Aplicar Logo</button>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                    <div>
-                        <label class="block text-xs font-semibold text-gray-700 mb-1">Cambiar PIN de Administrador</label>
-                        <input type="text" id="adminNewPin" placeholder="Nuevo PIN de acceso" class="w-full px-3 py-2 bg-white border border-gray-300 rounded-xl text-xs focus:ring-2 focus:ring-forest">
-                    </div>
-                    <div class="flex items-end">
-                        <button onclick="saveSiteSettings()" class="w-full bg-forest hover:bg-forest-dark text-white text-xs font-bold px-4 py-2.5 rounded-xl transition shadow">
-                            Guardar Cambios y PIN
-                        </button>
-                    </div>
-                </div>
+                <p class="text-[11px] text-gray-500 mt-1">Puedes buscar la imagen en tu computadora/celular o pegar una URL web para cambiar el logotipo al instante.</p>
             </div>
 
-            <!-- Add / Edit Product Form -->
-            <div class="bg-ivory p-6 rounded-2xl mb-8 border border-forest/10">
-                <h4 id="formTitle" class="font-bold text-forest text-sm uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <i class="fa-solid fa-plus-circle"></i> Agregar Nuevo Producto
-                </h4>
+            <!-- Form to Add/Edit Product -->
+            <form id="productForm" onsubmit="handleProductSubmit(event)" class="bg-ivory p-5 rounded-2xl border border-forest/10 mb-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <input type="hidden" id="editProductId">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-                    <div>
-                        <label class="block text-xs font-semibold text-gray-700 mb-1">Nombre del Producto</label>
-                        <input type="text" id="prodName" placeholder="Ej. Extracto de Valeriana" class="w-full px-3 py-2 bg-white border border-gray-300 rounded-xl text-xs focus:ring-2 focus:ring-forest">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold text-gray-700 mb-1">Categoría</label>
-                        <select id="prodCategory" class="w-full px-3 py-2 bg-white border border-gray-300 rounded-xl text-xs focus:ring-2 focus:ring-forest">
-                            <option value="Suplementos">Suplementos</option>
-                            <option value="Herbolaria y Tés">Herbolaria y Tés</option>
-                            <option value="Orgánicos">Orgánicos</option>
-                            <option value="Aromaterapia">Aromaterapia</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold text-gray-700 mb-1">Precio ($ MXN)</label>
-                        <input type="number" id="prodPrice" placeholder="150" class="w-full px-3 py-2 bg-white border border-gray-300 rounded-xl text-xs focus:ring-2 focus:ring-forest">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold text-gray-700 mb-1">Ícono FontAwesome (ej. fa-capsules, fa-leaf)</label>
-                        <input type="text" id="prodIcon" placeholder="fa-capsules" value="fa-leaf" class="w-full px-3 py-2 bg-white border border-gray-300 rounded-xl text-xs focus:ring-2 focus:ring-forest">
-                    </div>
+                <div>
+                    <label class="block text-xs font-bold text-forest uppercase tracking-wider mb-1">Nombre del producto</label>
+                    <input type="text" id="prodName" required class="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-forest" placeholder="Ej. Multivitamínico Natural">
                 </div>
-                <div class="mb-4">
-                    <label class="block text-xs font-semibold text-gray-700 mb-1">Descripción Breve</label>
-                    <textarea id="prodDesc" rows="2" placeholder="Detalles, presentación o beneficios..." class="w-full px-3 py-2 bg-white border border-gray-300 rounded-xl text-xs focus:ring-2 focus:ring-forest"></textarea>
+                <div>
+                    <label class="block text-xs font-bold text-forest uppercase tracking-wider mb-1">Categoría</label>
+                    <select id="prodCategory" class="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-forest">
+                        <option value="Suplementos">Suplementos</option>
+                        <option value="Herbolaria">Herbolaria</option>
+                        <option value="Minerales">Minerales y Vitaminas</option>
+                        <option value="Orgánicos">Orgánicos</option>
+                    </select>
                 </div>
-                <div class="flex gap-3">
-                    <button onclick="saveProduct()" class="bg-forest hover:bg-forest-dark text-white text-xs font-bold px-6 py-2.5 rounded-xl uppercase tracking-wider transition shadow">
-                        Guardar Producto
-                    </button>
-                    <button onclick="resetProductForm()" id="cancelEditBtn" class="hidden bg-gray-200 hover:bg-gray-300 text-gray-700 text-xs font-bold px-4 py-2.5 rounded-xl uppercase tracking-wider transition">
-                        Cancelar
-                    </button>
+                <div>
+                    <label class="block text-xs font-bold text-forest uppercase tracking-wider mb-1">Precio</label>
+                    <input type="text" id="prodPrice" required class="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-forest" placeholder="Ej. $280.00 MXN">
                 </div>
-            </div>
+                <div>
+                    <label class="block text-xs font-bold text-forest uppercase tracking-wider mb-1">Icono (FontAwesome class)</label>
+                    <input type="text" id="prodIcon" value="fa-capsules" class="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-forest" placeholder="Ej. fa-capsules, fa-mug-hot">
+                    <p class="text-[10px] text-gray-400 mt-1">Se usa solo si no subes una foto del producto.</p>
+                </div>
+                <div class="sm:col-span-2">
+                    <label class="block text-xs font-bold text-forest uppercase tracking-wider mb-1">Imagen del producto</label>
+                    <div class="flex items-center gap-3">
+                        <div id="prodImagePreviewWrap" class="w-16 h-16 rounded-xl border border-gray-200 bg-white flex items-center justify-center overflow-hidden flex-shrink-0">
+                            <img id="prodImagePreview" src="" class="w-full h-full object-cover hidden">
+                            <i id="prodImagePreviewIcon" class="fa-solid fa-image text-gray-300 text-xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <input type="file" id="prodImageInput" accept="image/*" onchange="handleProductImageUpload(event)" class="w-full file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-forest file:text-white hover:file:bg-forest-light text-xs text-gray-600 border border-gray-200 rounded-xl bg-white p-1">
+                            <div class="flex items-center justify-between mt-1">
+                                <p class="text-[10px] text-gray-400">Selecciona una foto desde tu celular o computadora.</p>
+                                <button type="button" id="prodImageRemoveBtn" onclick="removeProductImage()" class="hidden text-[10px] text-red-500 hover:underline font-semibold">Quitar imagen</button>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" id="prodImage">
+                </div>
+                <div class="sm:col-span-2">
+                    <label class="block text-xs font-bold text-forest uppercase tracking-wider mb-1">Descripción</label>
+                    <textarea id="prodDesc" rows="2" required class="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-forest" placeholder="Breve detalle del producto..."></textarea>
+                </div>
+                <div class="sm:col-span-2 flex justify-end space-x-3 pt-2">
+                    <button type="button" onclick="resetForm()" class="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-xl text-xs font-semibold uppercase tracking-wider transition-colors">Cancelar / Nuevo</button>
+                    <button type="submit" id="saveBtn" class="px-6 py-2 bg-forest hover:bg-forest-light text-white rounded-xl text-xs font-semibold uppercase tracking-wider transition-colors shadow-sm">Guardar Producto</button>
+                </div>
+            </form>
 
-            <!-- Existing Products List -->
-            <div>
-                <h4 class="font-bold text-forest text-sm uppercase tracking-wider mb-4">Inventario Actual</h4>
-                <div id="adminProductList" class="space-y-3 max-h-60 overflow-y-auto pr-2">
-                    <!-- Loaded via JS -->
+            <!-- Product List Table -->
+            <div class="flex-1 overflow-y-auto">
+                <div class="flex items-center justify-between mb-3">
+                    <h4 class="text-sm font-bold text-forest uppercase tracking-wider">Productos Actuales en Inventario</h4>
+                    <span id="storageUsageLabel" class="text-[10px] font-semibold text-gray-400"></span>
+                </div>
+                <div id="adminProductList" class="space-y-3">
+                    <!-- Loaded dynamically -->
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- JavaScript Application Logic -->
     <script>
-        // Default dataset
+        const defaultLogo = "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=150&q=80";
+        let currentLogo = localStorage.getItem('yusef_logo') || defaultLogo;
+
+        function applyLogo() {
+            document.getElementById('headerLogoImg').src = currentLogo;
+            document.getElementById('footerLogoImg').src = currentLogo;
+            document.getElementById('logoUrlInput').value = currentLogo.startsWith('data:') ? '' : currentLogo;
+        }
+
+        // Comprime y redimensiona una imagen en el navegador antes de convertirla a base64.
+        // Esto es lo que hace viable guardar 15+ fotos en localStorage (límite ~5-10MB).
+        // maxDim: dimensión máxima en px del lado más largo. quality: calidad JPEG 0-1.
+        function compressImage(file, maxDim = 900, quality = 0.72) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        let { width, height } = img;
+                        if (width > height && width > maxDim) {
+                            height = Math.round(height * (maxDim / width));
+                            width = maxDim;
+                        } else if (height > maxDim) {
+                            width = Math.round(width * (maxDim / height));
+                            height = maxDim;
+                        }
+                        const canvas = document.createElement('canvas');
+                        canvas.width = width;
+                        canvas.height = height;
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0, width, height);
+                        resolve(canvas.toDataURL('image/jpeg', quality));
+                    };
+                    img.onerror = reject;
+                    img.src = e.target.result;
+                };
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+            });
+        }
+
+        // Intenta guardar en localStorage; si el navegador rechaza por cupo lleno,
+        // avisa con claridad en vez de fallar en silencio.
+        function safeLocalStorageSet(key, value) {
+            try {
+                localStorage.setItem(key, value);
+                return true;
+            } catch (err) {
+                alert("No se pudo guardar: se llenó el espacio de almacenamiento del navegador (localStorage). Elimina imágenes o productos que ya no uses, o reduce la cantidad de fotos, e inténtalo de nuevo.");
+                return false;
+            }
+        }
+
+        function handleLogoFileUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                compressImage(file, 400, 0.75).then((dataUrl) => {
+                    currentLogo = dataUrl;
+                    if (safeLocalStorageSet('yusef_logo', currentLogo)) {
+                        applyLogo();
+                    }
+                });
+            }
+        }
+
+        function updateLogoUrl() {
+            const inputVal = document.getElementById('logoUrlInput').value.trim();
+            if (inputVal !== '') {
+                currentLogo = inputVal;
+                safeLocalStorageSet('yusef_logo', currentLogo);
+                applyLogo();
+            }
+            alert("¡Logotipo actualizado con éxito!");
+        }
+
         const defaultProducts = [
             {
                 id: 1,
-                name: "Extracto de Valeriana y Pasiflora",
-                category: "Herbolaria y Tés",
-                price: 180,
-                desc: "Auxiliar natural para conciliar el sueño y disminuir la tensión nerviosa cotidiana.",
-                icon: "fa-seedling"
-            },
-            {
-                id: 2,
-                name: "Multivitamínico Minerales Plus",
+                name: "Suplementos Vitamínicos Naturales",
                 category: "Suplementos",
-                price: 250,
-                desc: "Frasco con 60 cápsulas con complejo B, zinc, magnesio y vitaminas esenciales.",
+                description: "Vitaminas, minerales, proteína, aminoácidos y más para tu vitalidad diaria.",
+                price: "$280.00 MXN",
                 icon: "fa-capsules"
             },
             {
-                id: 3,
-                name: "Té Verde Orgánico Selecto",
-                category: "Orgánicos",
-                price: 120,
-                desc: "Antioxidante natural de hojas seleccionadas para tu energía diaria.",
+                id: 2,
+                name: "Hierbas Medicinales y Tés",
+                category: "Herbolaria",
+                description: "Plantas medicinales seleccionadas, tés e infusiones curativas tradicionales.",
+                price: "$120.00 MXN",
                 icon: "fa-mug-hot"
             },
             {
+                id: 3,
+                name: "Minerales y Multivitamínicos",
+                category: "Minerales",
+                description: "Complejos minerales y vitamínicos seleccionados con responsabilidad.",
+                price: "$240.00 MXN",
+                icon: "fa-pills"
+            },
+            {
                 id: 4,
-                name: "Aceite Esencial de Lavanda",
-                category: "Aromaterapia",
-                price: 190,
-                desc: "Ideal para difusores, masajes relajantes y fomentar el equilibrio emocional.",
-                icon: "fa-spa"
+                name: "Extractos y Tinturas Botánicas",
+                category: "Herbolaria",
+                description: "Tinturas concentradas y aceites esenciales naturales de alta pureza.",
+                price: "$210.00 MXN",
+                icon: "fa-droplet"
             },
             {
                 id: 5,
-                name: "Cápsulas de Moringa Pura",
-                category: "Suplementos",
-                price: 210,
-                desc: "Suplemento alimenticio 100% natural rico en nutrientes esenciales.",
-                icon: "fa-prescription-bottle-medical"
+                name: "Superalimentos y Snacks Saludables",
+                category: "Orgánicos",
+                description: "Alternativas nutritivas, snacks saludables y superalimentos para tu nutrición.",
+                price: "$190.00 MXN",
+                icon: "fa-seedling"
             },
             {
                 id: 6,
-                name: "Tintura de Cuachalalate y Arnica",
-                category: "Herbolaria y Tés",
-                price: 160,
-                desc: "Tradición herbolaria seleccionada con altos estándares de calidad.",
-                icon: "fa-mortar-pestle"
+                name: "Kits de Bienestar y Aromaterapia",
+                category: "Orgánicos",
+                description: "Aceites esenciales, difusores e inciensos para fomentar la calma y el equilibrio.",
+                price: "$340.00 MXN",
+                icon: "fa-spa"
             }
         ];
 
-        let products = JSON.parse(localStorage.getItem('espacio_natural_products')) || defaultProducts;
-        let siteSettings = JSON.parse(localStorage.getItem('espacio_natural_settings')) || { logoUrl: '', pin: '1234' };
-        let currentCategory = 'Todos';
+        let products = JSON.parse(localStorage.getItem('yusef_products')) || defaultProducts;
+
+        function saveProductsToStorage() {
+            return safeLocalStorageSet('yusef_products', JSON.stringify(products));
+        }
+
+        const productGrid = document.getElementById('productGrid');
+        const searchInput = document.getElementById('searchInput');
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        const noResults = document.getElementById('noResults');
+
+        let currentCategory = 'todos';
         let searchQuery = '';
 
-        window.onload = function() {
-            renderProducts();
-            applySiteSettings();
-        };
-
-        function applySiteSettings() {
-            if (siteSettings.logoUrl) {
-                document.getElementById('headerLogoImg').src = siteSettings.logoUrl;
-                document.getElementById('footerLogoImg').src = siteSettings.logoUrl;
-                document.getElementById('adminLogoUrl').value = siteSettings.logoUrl;
-            }
-            if (!siteSettings.pin) {
-                siteSettings.pin = '1234';
-            }
-        }
-
-        function handleLogoUpload(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    siteSettings.logoUrl = e.target.result;
-                    document.getElementById('adminLogoUrl').value = e.target.result;
-                    applySiteSettings();
-                    localStorage.setItem('espacio_natural_settings', JSON.stringify(siteSettings));
-                };
-                reader.readAsDataURL(file);
-            }
-        }
-
-        function saveSiteSettings() {
-            siteSettings.logoUrl = document.getElementById('adminLogoUrl').value;
-            const newPin = document.getElementById('adminNewPin').value.trim();
-            if (newPin) {
-                siteSettings.pin = newPin;
-                document.getElementById('adminNewPin').value = '';
-                alert('¡Configuración y nuevo PIN de administrador guardados exitosamente!');
-            } else {
-                alert('¡Logotipo guardado exitosamente!');
-            }
-            localStorage.setItem('espacio_natural_settings', JSON.stringify(siteSettings));
-            applySiteSettings();
-        }
-
-        function openAdminLoginModal() {
-            document.getElementById('adminPinInput').value = '';
-            document.getElementById('loginErrorMsg').classList.add('hidden');
-            document.getElementById('adminLoginModal').classList.remove('hidden');
-        }
-
-        function closeAdminLoginModal() {
-            document.getElementById('adminLoginModal').classList.add('hidden');
-        }
-
-        function verifyAdminPin() {
-            const enteredPin = document.getElementById('adminPinInput').value.trim();
-            const correctPin = siteSettings.pin || '1234';
-
-            if (enteredPin === correctPin) {
-                closeAdminLoginModal();
-                openAdminModal();
-            } else {
-                document.getElementById('loginErrorMsg').classList.remove('hidden');
-            }
-        }
-
         function renderProducts() {
-            const grid = document.getElementById('productGrid');
-            const noProducts = document.getElementById('noProducts');
-            grid.innerHTML = '';
+            productGrid.innerHTML = '';
 
-            const filtered = products.filter(p => {
-                const matchCat = currentCategory === 'Todos' || p.category === currentCategory;
-                const matchSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                                    p.desc.toLowerCase().includes(searchQuery.toLowerCase());
-                return matchCat && matchSearch;
+            const filtered = products.filter(product => {
+                const matchesCategory = currentCategory === 'todos' || product.category === currentCategory;
+                const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                                      product.description.toLowerCase().includes(searchQuery.toLowerCase());
+                return matchesCategory && matchesSearch;
             });
 
             if (filtered.length === 0) {
-                noProducts.classList.remove('hidden');
-                return;
+                noResults.classList.remove('hidden');
             } else {
-                noProducts.classList.add('hidden');
-            }
+                noResults.classList.add('hidden');
+                filtered.forEach(product => {
+                    const waMessage = encodeURIComponent(`Hola, me interesa pedir disponibilidad del siguiente producto: *${product.name}* (${product.price}). ¿Está disponible en tienda?`);
+                    const waLink = `https://wa.me/529621058115?text=${waMessage}`;
 
-            filtered.forEach(p => {
-                const card = document.createElement('div');
-                card.className = 'bg-white rounded-3xl p-6 shadow-sm border border-forest/10 flex flex-col justify-between hover:shadow-md transition';
-                
-                const waMessage = encodeURIComponent(`Hola, me interesa pedir por WhatsApp el producto: *${p.name}* ($${p.price} MXN). ¿Hay disponibilidad?`);
-                const waLink = `https://wa.me/529621058115?text=${waMessage}`;
+                    const card = document.createElement('div');
+                    card.className = "bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-all border border-forest/10 flex flex-col justify-between group";
+                    const imageBlock = product.image
+                        ? `<div class="w-12 h-12 rounded-xl overflow-hidden group-hover:ring-2 group-hover:ring-gold transition-all flex-shrink-0"><img src="${product.image}" class="w-full h-full object-cover" alt="${product.name}"></div>`
+                        : `<div class="w-12 h-12 rounded-xl bg-forest-sage/50 text-forest flex items-center justify-center text-xl group-hover:bg-forest group-hover:text-gold transition-colors flex-shrink-0"><i class="fa-solid ${product.icon || 'fa-leaf'}"></i></div>`;
 
-                card.innerHTML = `
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <div class="w-12 h-12 bg-forest-sage text-forest rounded-2xl flex items-center justify-center text-xl shadow-inner">
-                                <i class="fa-solid ${p.icon || 'fa-leaf'}"></i>
+                    card.innerHTML = `
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                ${imageBlock}
+                                <span class="px-3 py-1 bg-ivory text-forest-dark border border-forest/10 text-xs font-semibold rounded-full uppercase tracking-wider">${product.category}</span>
                             </div>
-                            <span class="bg-forest/10 text-forest text-[11px] font-bold px-3 py-1 rounded-full">${p.category}</span>
+                            <h3 class="text-lg font-bold text-forest mb-2 font-serif">${product.name}</h3>
+                            <p class="text-sm text-gray-600 mb-6 leading-relaxed">${product.description}</p>
                         </div>
-                        <h3 class="font-serif font-bold text-lg text-forest mb-2">${p.name}</h3>
-                        <p class="text-gray-600 text-xs sm:text-sm leading-relaxed mb-4">${p.desc}</p>
-                    </div>
-                    <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
-                        <span class="font-serif font-bold text-xl text-forest">$${p.price} <span class="text-xs font-sans text-gray-500 font-normal">MXN</span></span>
-                        <a href="${waLink}" target="_blank" class="bg-forest hover:bg-forest-light text-white font-bold px-4 py-2.5 rounded-xl text-xs uppercase tracking-wider transition shadow flex items-center gap-2">
-                            <i class="fa-brands fa-whatsapp text-sm"></i> Pedir por WA
-                        </a>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
+                        <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                            <span class="text-base font-bold text-gold-dark">${product.price}</span>
+                            <a href="${waLink}" target="_blank" class="bg-forest hover:bg-forest-light text-white px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider flex items-center space-x-1.5 shadow-sm transition-all transform hover:scale-105">
+                                <i class="fa-brands fa-whatsapp text-green-400 text-sm"></i>
+                                <span>Pedir por WA</span>
+                            </a>
+                        </div>
+                    `;
+                    productGrid.appendChild(card);
+                });
+            }
         }
 
-        function setCategory(cat) {
-            currentCategory = cat;
-            document.querySelectorAll('.category-btn').forEach(btn => {
-                if (btn.textContent.trim().toLowerCase() === cat.toLowerCase()) {
-                    btn.className = 'category-btn active px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider bg-forest text-white transition-all shadow-sm';
-                } else {
-                    btn.className = 'category-btn px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider bg-forest-sage/50 text-forest hover:bg-forest hover:text-white transition-all';
-                }
-            });
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value.trim();
             renderProducts();
-        }
+        });
 
-        function filterProducts() {
-            searchQuery = document.getElementById('searchInput').value;
-            renderProducts();
-        }
+        categoryButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryButtons.forEach(b => {
+                    b.classList.remove('bg-forest', 'text-white');
+                    b.classList.add('bg-forest-sage/50', 'text-forest');
+                });
+                btn.classList.remove('bg-forest-sage/50', 'text-forest');
+                btn.classList.add('bg-forest', 'text-white');
+
+                currentCategory = btn.getAttribute('data-category');
+                renderProducts();
+            });
+        });
+
+        const adminModal = document.getElementById('adminModal');
+        const adminProductList = document.getElementById('adminProductList');
 
         function openAdminModal() {
-            document.getElementById('adminModal').classList.remove('hidden');
-            renderAdminProductList();
+            adminModal.classList.remove('hidden');
+            renderAdminList();
+            applyLogo();
         }
 
         function closeAdminModal() {
-            document.getElementById('adminModal').classList.add('hidden');
-            resetProductForm();
+            adminModal.classList.add('hidden');
+            resetForm();
+            renderProducts();
         }
 
-        function renderAdminProductList() {
-            const list = document.getElementById('adminProductList');
-            list.innerHTML = '';
+        function updateStorageUsageLabel() {
+            const label = document.getElementById('storageUsageLabel');
+            if (!label) return;
+            let bytes = 0;
+            try {
+                bytes = new Blob([localStorage.getItem('yusef_products') || '']).size
+                      + new Blob([localStorage.getItem('yusef_logo') || '']).size;
+            } catch (e) { /* noop */ }
+            const kb = (bytes / 1024).toFixed(0);
+            const limitKb = 5120; // referencia conservadora, el límite real varía por navegador (5-10MB)
+            const pct = Math.min(100, Math.round((bytes / (limitKb * 1024)) * 100));
+            label.textContent = `Almacenamiento usado: ~${kb} KB (${pct}% de ~5MB)`;
+            label.className = pct > 80
+                ? "text-[10px] font-semibold text-red-500"
+                : "text-[10px] font-semibold text-gray-400";
+        }
 
-            products.forEach(p => {
+        function renderAdminList() {
+            updateStorageUsageLabel();
+            adminProductList.innerHTML = '';
+            products.forEach(product => {
                 const item = document.createElement('div');
-                item.className = 'flex items-center justify-between bg-white p-3 rounded-xl border border-gray-200 text-xs';
+                item.className = "flex items-center justify-between p-3 bg-white rounded-xl border border-gray-200 text-sm";
+                const thumb = product.image
+                    ? `<div class="w-9 h-9 rounded-lg overflow-hidden flex-shrink-0"><img src="${product.image}" class="w-full h-full object-cover" alt="${product.name}"></div>`
+                    : `<div class="w-9 h-9 rounded-lg bg-forest-sage text-forest flex items-center justify-center text-sm flex-shrink-0"><i class="fa-solid ${product.icon || 'fa-leaf'}"></i></div>`;
                 item.innerHTML = `
-                    <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 bg-forest-sage text-forest rounded-lg flex items-center justify-center">
-                            <i class="fa-solid ${p.icon || 'fa-leaf'}"></i>
-                        </div>
+                    <div class="flex items-center space-x-3">
+                        ${thumb}
                         <div>
-                            <span class="font-bold text-gray-800 block">${p.name}</span>
-                            <span class="text-gray-500">$${p.price} MXN • ${p.category}</span>
+                            <h5 class="font-bold text-forest">${product.name}</h5>
+                            <p class="text-xs text-gray-500">${product.category} • <span class="text-gold-dark font-semibold">${product.price}</span></p>
                         </div>
                     </div>
-                    <div class="flex gap-2">
-                        <button onclick="editProduct(${p.id})" class="bg-blue-50 hover:bg-blue-100 text-blue-600 px-3 py-1.5 rounded-lg font-medium transition">Editar</button>
-                        <button onclick="deleteProduct(${p.id})" class="bg-red-50 hover:bg-red-100 text-red-600 px-3 py-1.5 rounded-lg font-medium transition">Eliminar</button>
+                    <div class="flex items-center space-x-2">
+                        <button onclick="editProduct(${product.id})" class="px-3 py-1.5 bg-forest/10 hover:bg-forest text-forest hover:text-white rounded-lg text-xs font-semibold transition-colors">Editar</button>
+                        <button onclick="deleteProduct(${product.id})" class="px-3 py-1.5 bg-red-50 hover:bg-red-500 text-red-600 hover:text-white rounded-lg text-xs font-semibold transition-colors">Eliminar</button>
                     </div>
                 `;
-                list.appendChild(item);
+                adminProductList.appendChild(item);
             });
         }
 
-        function saveProduct() {
-            const id = document.getElementById('editProductId').value;
-            const name = document.getElementById('prodName').value.trim();
-            const category = document.getElementById('prodCategory').value;
-            const price = parseFloat(document.getElementById('prodPrice').value);
-            const desc = document.getElementById('prodDesc').value.trim();
-            const icon = document.getElementById('prodIcon').value.trim() || 'fa-leaf';
-
-            if (!name || isNaN(price) || !desc) {
-                alert('Por favor completa todos los campos obligatorios.');
-                return;
+        function handleProductImageUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const previewIcon = document.getElementById('prodImagePreviewIcon');
+                previewIcon.className = "fa-solid fa-spinner fa-spin text-gray-400 text-xl";
+                compressImage(file, 900, 0.72).then((dataUrl) => {
+                    document.getElementById('prodImage').value = dataUrl;
+                    setProductImagePreview(dataUrl);
+                }).catch(() => {
+                    alert("No se pudo procesar esa imagen. Intenta con otra foto.");
+                    previewIcon.className = "fa-solid fa-image text-gray-300 text-xl";
+                });
             }
+        }
+
+        function setProductImagePreview(src) {
+            const previewImg = document.getElementById('prodImagePreview');
+            const previewIcon = document.getElementById('prodImagePreviewIcon');
+            const removeBtn = document.getElementById('prodImageRemoveBtn');
+            if (src) {
+                previewImg.src = src;
+                previewImg.classList.remove('hidden');
+                previewIcon.classList.add('hidden');
+                removeBtn.classList.remove('hidden');
+            } else {
+                previewImg.src = '';
+                previewImg.classList.add('hidden');
+                previewIcon.classList.remove('hidden');
+                removeBtn.classList.add('hidden');
+            }
+        }
+
+        function removeProductImage() {
+            document.getElementById('prodImage').value = '';
+            document.getElementById('prodImageInput').value = '';
+            setProductImagePreview(null);
+        }
+
+        function handleProductSubmit(e) {
+            e.preventDefault();
+            const id = document.getElementById('editProductId').value;
+            const name = document.getElementById('prodName').value;
+            const category = document.getElementById('prodCategory').value;
+            const price = document.getElementById('prodPrice').value;
+            const icon = document.getElementById('prodIcon').value || 'fa-capsules';
+            const image = document.getElementById('prodImage').value;
+            const description = document.getElementById('prodDesc').value;
 
             if (id) {
-                products = products.map(p => p.id == id ? { id: Number(id), name, category, price, desc, icon } : p);
+                const index = products.findIndex(p => p.id == id);
+                if (index !== -1) {
+                    products[index] = { id: Number(id), name, category, price, icon, image, description };
+                }
             } else {
                 const newId = products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1;
-                products.push({ id: newId, name, category, price, desc, icon });
+                products.push({ id: newId, name, category, price, icon, image, description });
             }
 
-            localStorage.setItem('espacio_natural_products', JSON.stringify(products));
-            renderProducts();
-            renderAdminProductList();
-            resetProductForm();
-            alert('¡Producto guardado exitosamente!');
+            saveProductsToStorage();
+            renderAdminList();
+            resetForm();
         }
 
         function editProduct(id) {
-            const p = products.find(prod => prod.id === id);
-            if (!p) return;
-
-            document.getElementById('editProductId').value = p.id;
-            document.getElementById('prodName').value = p.name;
-            document.getElementById('prodCategory').value = p.category;
-            document.getElementById('prodPrice').value = p.price;
-            document.getElementById('prodDesc').value = p.desc;
-            document.getElementById('prodIcon').value = p.icon;
-
-            document.getElementById('formTitle').innerHTML = '<i class="fa-solid fa-pen-to-square"></i> Editar Producto';
-            document.getElementById('cancelEditBtn').classList.remove('hidden');
-        }
-
-        function deleteProduct(id) {
-            if (confirm('¿Estás seguro de eliminar este producto?')) {
-                products = products.filter(p => p.id !== id);
-                localStorage.setItem('espacio_natural_products', JSON.stringify(products));
-                renderProducts();
-                renderAdminProductList();
+            const product = products.find(p => p.id === id);
+            if (product) {
+                document.getElementById('editProductId').value = product.id;
+                document.getElementById('prodName').value = product.name;
+                document.getElementById('prodCategory').value = product.category;
+                document.getElementById('prodPrice').value = product.price;
+                document.getElementById('prodIcon').value = product.icon || 'fa-capsules';
+                document.getElementById('prodDesc').value = product.description;
+                document.getElementById('prodImage').value = product.image || '';
+                document.getElementById('prodImageInput').value = '';
+                setProductImagePreview(product.image || null);
+                document.getElementById('saveBtn').textContent = "Actualizar Producto";
             }
         }
 
-        function resetProductForm() {
-            document.getElementById('editProductId').value = '';
-            document.getElementById('prodName').value = '';
-            document.getElementById('prodPrice').value = '';
-            document.getElementById('prodDesc').value = '';
-            document.getElementById('prodIcon').value = 'fa-leaf';
-            document.getElementById('formTitle').innerHTML = '<i class="fa-solid fa-plus-circle"></i> Agregar Nuevo Producto';
-            document.getElementById('cancelEditBtn').classList.add('hidden');
+        function deleteProduct(id) {
+            if (confirm("¿Estás seguro de eliminar este producto del inventario?")) {
+                products = products.filter(p => p.id !== id);
+                saveProductsToStorage();
+                renderAdminList();
+            }
         }
+
+        function resetForm() {
+            document.getElementById('productForm').reset();
+            document.getElementById('editProductId').value = "";
+            document.getElementById('prodIcon').value = "fa-capsules";
+            document.getElementById('prodImage').value = "";
+            document.getElementById('prodImageInput').value = "";
+            setProductImagePreview(null);
+            document.getElementById('saveBtn').textContent = "Guardar Producto";
+        }
+
+        window.onload = () => {
+            applyLogo();
+            renderProducts();
+        };
     </script>
 </body>
 </html>
