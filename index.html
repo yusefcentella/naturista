@@ -45,6 +45,10 @@
             font-family: 'Montserrat', sans-serif;
             background-color: #F9F8F3;
             color: #2D3748;
+            overflow-x: hidden;
+        }
+        html {
+            overflow-x: hidden;
         }
         h1, h2, h3, h4, .font-serif {
             font-family: 'Playfair Display', serif;
@@ -61,13 +65,13 @@
     <header class="sticky top-0 z-50 bg-ivory/95 backdrop-blur-md border-b border-forest/10 shadow-sm transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3.5">
-                <div class="w-12 h-12 rounded-full overflow-hidden bg-white shadow-md border border-gold/50 flex-shrink-0 flex items-center justify-center p-0.5">
+                <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden bg-white shadow-md border border-gold/50 flex-shrink-0 flex items-center justify-center p-0.5">
                     <img id="headerLogoImg" src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=150&q=80" alt="Logo Espacio Natural de Yusef" class="w-full h-full object-cover rounded-full" onerror="this.src='https://placehold.co/150x150/1A4D3A/C5A059?text=EN'">
                 </div>
                 <div class="flex items-center space-x-2">
                     <div>
-                        <h1 class="text-sm sm:text-base font-bold text-forest tracking-wide uppercase font-serif">Espacio Natural</h1>
-                        <p class="text-[10px] text-gold-dark font-semibold tracking-widest uppercase">de Yusef</p>
+                        <h1 class="text-xs sm:text-base font-bold text-forest tracking-wide uppercase font-serif leading-tight">Espacio Natural</h1>
+                        <p class="text-[9px] sm:text-[10px] text-gold-dark font-semibold tracking-widest uppercase">de Yusef</p>
                     </div>
                 </div>
             </div>
@@ -78,17 +82,32 @@
                 <a href="#por-que-elegirnos" class="hover:text-gold transition-colors">¿Por qué elegirnos?</a>
                 <a href="#contacto" class="hover:text-gold transition-colors">Ubicación</a>
             </nav>
-            <div class="flex items-center space-x-3">
-                <button onclick="openAdminModal()" class="bg-forest-sage text-forest hover:bg-forest hover:text-white px-3 py-2 rounded-full text-xs font-semibold uppercase tracking-wider flex items-center space-x-1.5 transition-all border border-forest/20" title="Gestionar Productos y Logotipo">
+            <div class="flex items-center space-x-2 sm:space-x-3">
+                <button onclick="openAdminModal()" class="bg-forest-sage text-forest hover:bg-forest hover:text-white px-2.5 sm:px-3 py-2 rounded-full text-xs font-semibold uppercase tracking-wider flex items-center space-x-1.5 transition-all border border-forest/20" title="Gestionar Productos y Logotipo">
                     <i class="fa-solid fa-gear"></i>
                     <span class="hidden sm:inline">Admin</span>
                 </button>
-                <a href="https://wa.me/529621058115?text=Hola,%20vengo%20de%20su%20sitio%20web%20y%20deseo%20consultar%20disponibilidad." target="_blank" class="bg-forest hover:bg-forest-light text-white px-4 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider flex items-center space-x-2 shadow-md transition-all transform hover:scale-105">
+                <button onclick="openDeleteProductsModal()" class="bg-red-50 text-red-500 hover:bg-red-500 hover:text-white px-2.5 sm:px-3 py-2 rounded-full text-xs font-semibold uppercase tracking-wider flex items-center space-x-1.5 transition-all border border-red-200" title="Eliminar Productos">
+                    <i class="fa-solid fa-trash"></i>
+                    <span class="hidden sm:inline">Eliminar</span>
+                </button>
+                <a href="https://wa.me/529621058115?text=Hola,%20vengo%20de%20su%20sitio%20web%20y%20deseo%20consultar%20disponibilidad." target="_blank" class="bg-forest hover:bg-forest-light text-white px-3 sm:px-4 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider flex items-center space-x-2 shadow-md transition-all transform hover:scale-105">
                     <i class="fa-brands fa-whatsapp text-base text-green-400"></i>
                     <span class="hidden sm:inline">WhatsApp</span>
                 </a>
+                <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="md:hidden w-10 h-10 rounded-full bg-forest-sage text-forest flex items-center justify-center flex-shrink-0" aria-label="Abrir menú" aria-expanded="false">
+                    <i id="mobileMenuIcon" class="fa-solid fa-bars"></i>
+                </button>
             </div>
         </div>
+        <!-- Menú móvil desplegable -->
+        <nav id="mobileMenu" class="hidden md:hidden flex-col bg-ivory border-t border-forest/10 px-4 py-3 space-y-1 text-sm font-medium text-forest">
+            <a href="#inicio" onclick="closeMobileMenu()" class="block py-2.5 px-2 rounded-lg hover:bg-forest-sage/50 transition-colors">Inicio</a>
+            <a href="#productos" onclick="closeMobileMenu()" class="block py-2.5 px-2 rounded-lg hover:bg-forest-sage/50 transition-colors">Tienda</a>
+            <a href="#mision-vision" onclick="closeMobileMenu()" class="block py-2.5 px-2 rounded-lg hover:bg-forest-sage/50 transition-colors">Misión y Visión</a>
+            <a href="#por-que-elegirnos" onclick="closeMobileMenu()" class="block py-2.5 px-2 rounded-lg hover:bg-forest-sage/50 transition-colors">¿Por qué elegirnos?</a>
+            <a href="#contacto" onclick="closeMobileMenu()" class="block py-2.5 px-2 rounded-lg hover:bg-forest-sage/50 transition-colors">Ubicación</a>
+        </nav>
     </header>
 
     <section id="inicio" class="hero-bg text-white py-20 lg:py-32 px-4 text-center relative overflow-hidden">
@@ -122,9 +141,9 @@
         </div>
 
         <!-- Search and Category Filters -->
-        <div class="mb-10 flex flex-col md:flex-row items-center justify-between gap-6 bg-white p-6 rounded-2xl shadow-sm border border-forest/10">
+        <div class="mb-10 flex flex-col lg:flex-row lg:flex-wrap items-center justify-between gap-6 bg-white p-6 rounded-2xl shadow-sm border border-forest/10">
             <!-- Search Bar -->
-            <div class="relative w-full md:w-96">
+            <div class="relative w-full lg:w-96">
                 <span class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-400">
                     <i class="fa-solid fa-search"></i>
                 </span>
@@ -132,7 +151,7 @@
             </div>
 
             <!-- Category Buttons -->
-            <div class="flex flex-wrap items-center justify-center gap-2 w-full md:w-auto" id="categoryButtons">
+            <div class="flex flex-wrap items-center justify-center gap-2 w-full lg:w-auto" id="categoryButtons">
                 <button data-category="todos" class="category-btn active px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider bg-forest text-white transition-all shadow-sm">Todos</button>
                 <button data-category="Suplementos" class="category-btn px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider bg-forest-sage/50 text-forest hover:bg-forest hover:text-white transition-all">Suplementos</button>
                 <button data-category="Herbolaria" class="category-btn px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider bg-forest-sage/50 text-forest hover:bg-forest hover:text-white transition-all">Herbolaria y Tés</button>
@@ -261,14 +280,17 @@
                 </a>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto pt-8 border-t border-white/10 text-center text-xs text-gray-400 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="max-w-7xl mx-auto pt-8 border-t border-white/10 text-center text-xs text-gray-400 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
             <p>&copy; 2026 Espacio Natural de Yusef. Todos los derechos reservados.</p>
+            <span class="hidden sm:inline">•</span>
             <button onclick="openAdminModal()" class="text-gold hover:underline text-xs">Administrar Catálogo y Logotipo</button>
+            <span class="hidden sm:inline">•</span>
+            <button onclick="openDeleteProductsModal()" class="text-red-400 hover:underline text-xs">Eliminar Productos</button>
         </div>
     </footer>
 
-    <div id="adminModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4 overflow-y-auto">
-        <div class="bg-white rounded-3xl max-w-3xl w-full p-6 sm:p-8 shadow-2xl border border-forest/10 max-h-[90vh] flex flex-col">
+    <div id="adminModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-start sm:items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white rounded-3xl max-w-3xl w-full p-6 sm:p-8 shadow-2xl border border-forest/10 my-6">
             <div class="flex items-center justify-between pb-4 border-b border-gray-100 mb-6">
                 <div>
                     <h3 class="text-xl font-bold text-forest font-serif">Panel de Administración</h3>
@@ -311,6 +333,11 @@
                     <input type="text" id="prodPrice" required class="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-forest" placeholder="Ej. $280.00 MXN">
                 </div>
                 <div>
+                    <label class="block text-xs font-bold text-forest uppercase tracking-wider mb-1">Stock disponible</label>
+                    <input type="number" id="prodStock" min="0" step="1" class="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-forest" placeholder="Ej. 12">
+                    <p class="text-[10px] text-gray-400 mt-1">Déjalo vacío si no llevas control de existencias para este producto.</p>
+                </div>
+                <div>
                     <label class="block text-xs font-bold text-forest uppercase tracking-wider mb-1">Icono (FontAwesome class)</label>
                     <input type="text" id="prodIcon" value="fa-capsules" class="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-forest" placeholder="Ej. fa-capsules, fa-mug-hot">
                     <p class="text-[10px] text-gray-400 mt-1">Se usa solo si no subes una foto del producto.</p>
@@ -336,26 +363,102 @@
                     <label class="block text-xs font-bold text-forest uppercase tracking-wider mb-1">Descripción</label>
                     <textarea id="prodDesc" rows="2" required class="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-forest" placeholder="Breve detalle del producto..."></textarea>
                 </div>
+                <div class="sm:col-span-2 flex items-center gap-2 bg-ivory rounded-xl px-3 py-2 border border-gray-200">
+                    <input type="checkbox" id="prodVisible" checked class="w-4 h-4">
+                    <label for="prodVisible" class="text-xs font-semibold text-forest">Visible en el catálogo público</label>
+                    <span class="text-[10px] text-gray-400 ml-auto">Desmarca para ocultarlo temporalmente (ej. sin stock) sin borrar sus datos.</span>
+                </div>
                 <div class="sm:col-span-2 flex justify-end space-x-3 pt-2">
                     <button type="button" onclick="resetForm()" class="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-xl text-xs font-semibold uppercase tracking-wider transition-colors">Cancelar / Nuevo</button>
                     <button type="submit" id="saveBtn" class="px-6 py-2 bg-forest hover:bg-forest-light text-white rounded-xl text-xs font-semibold uppercase tracking-wider transition-colors shadow-sm">Guardar Producto</button>
                 </div>
             </form>
 
-            <!-- Product List Table -->
-            <div class="flex-1 overflow-y-auto">
-                <div class="flex items-center justify-between mb-3">
+            <p class="text-center text-xs text-gray-400">
+                ¿Necesitas eliminar o quitar productos publicados?
+                <button type="button" onclick="closeAdminModal(); openDeleteProductsModal();" class="text-red-500 font-semibold hover:underline">Abrir el panel de Eliminar Productos</button>
+            </p>
+        </div>
+    </div>
+
+    <!-- Panel separado: Eliminar / Gestionar visibilidad de productos -->
+    <div id="deleteProductsModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-start sm:items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white rounded-3xl max-w-3xl w-full p-6 sm:p-8 shadow-2xl border border-forest/10 my-6">
+            <div class="flex items-center justify-between pb-4 border-b border-gray-100 mb-6">
+                <div>
+                    <h3 class="text-xl font-bold text-forest font-serif">Eliminar Productos</h3>
+                    <p class="text-xs text-gray-500">Selecciona uno o varios productos para quitarlos u ocultarlos del catálogo.</p>
+                </div>
+                <button onclick="closeDeleteProductsModal()" class="w-10 h-10 rounded-full bg-ivory text-gray-600 hover:bg-gray-200 flex items-center justify-center transition-colors">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <div>
+                <div class="flex flex-wrap items-center justify-between gap-1 mb-3">
                     <h4 class="text-sm font-bold text-forest uppercase tracking-wider">Productos Actuales en Inventario</h4>
                     <span id="storageUsageLabel" class="text-[10px] font-semibold text-gray-400"></span>
                 </div>
+
+                <!-- Selección múltiple para eliminar -->
+                <div class="bg-ivory border border-gray-200 rounded-xl p-3 mb-3 space-y-2">
+                    <div class="flex flex-wrap items-center gap-2">
+                        <label class="flex items-center text-xs text-gray-600 font-semibold">
+                            <input type="checkbox" id="selectAllCheckbox" onchange="toggleSelectAll(this.checked)" class="mr-2 w-3.5 h-3.5">
+                            Seleccionar todo
+                        </label>
+                    </div>
+                    <div class="flex items-center justify-between pt-1 border-t border-gray-200/70">
+                        <span id="selectionCountLabel" class="text-[11px] text-gray-400">0 productos seleccionados</span>
+                        <button type="button" onclick="deleteSelectedProducts()" class="px-3 py-1.5 bg-red-500 hover:bg-red-600 text-white rounded-lg text-[11px] font-semibold transition-colors disabled:opacity-40 disabled:cursor-not-allowed" id="deleteSelectedBtn" disabled>
+                            <i class="fa-solid fa-trash mr-1"></i>Eliminar seleccionados
+                        </button>
+                    </div>
+                </div>
+
                 <div id="adminProductList" class="space-y-3">
                     <!-- Loaded dynamically -->
                 </div>
+
+                <p class="text-center text-xs text-gray-400 mt-4">
+                    ¿Quieres agregar o editar un producto?
+                    <button type="button" onclick="closeDeleteProductsModal(); openAdminModal();" class="text-forest font-semibold hover:underline">Abrir el Panel de Administración</button>
+                </p>
             </div>
         </div>
     </div>
 
     <script>
+        // --- Menú móvil ---
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.getElementById('mobileMenuBtn');
+            const icon = document.getElementById('mobileMenuIcon');
+            const isOpen = !menu.classList.contains('hidden');
+            if (isOpen) {
+                closeMobileMenu();
+            } else {
+                menu.classList.remove('hidden');
+                menu.classList.add('flex');
+                icon.className = "fa-solid fa-xmark";
+                btn.setAttribute('aria-expanded', 'true');
+            }
+        }
+
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.getElementById('mobileMenuBtn');
+            const icon = document.getElementById('mobileMenuIcon');
+            menu.classList.add('hidden');
+            menu.classList.remove('flex');
+            icon.className = "fa-solid fa-bars";
+            btn.setAttribute('aria-expanded', 'false');
+        }
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) closeMobileMenu();
+        });
+
         const defaultLogo = "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=150&q=80";
         let currentLogo = localStorage.getItem('yusef_logo') || defaultLogo;
 
@@ -500,6 +603,7 @@
             productGrid.innerHTML = '';
 
             const filtered = products.filter(product => {
+                if (product.visible === false) return false; // oculto del catálogo, no se elimina
                 const matchesCategory = currentCategory === 'todos' || product.category === currentCategory;
                 const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
                                       product.description.toLowerCase().includes(searchQuery.toLowerCase());
@@ -562,17 +666,43 @@
         });
 
         const adminModal = document.getElementById('adminModal');
+        const deleteProductsModal = document.getElementById('deleteProductsModal');
         const adminProductList = document.getElementById('adminProductList');
+
+        function resetModalScroll(modalEl) {
+            modalEl.scrollTop = 0;
+            requestAnimationFrame(() => {
+                modalEl.scrollTop = 0;
+                requestAnimationFrame(() => { modalEl.scrollTop = 0; });
+            });
+            setTimeout(() => { modalEl.scrollTop = 0; }, 50);
+            setTimeout(() => { modalEl.scrollTop = 0; }, 200);
+        }
 
         function openAdminModal() {
             adminModal.classList.remove('hidden');
-            renderAdminList();
+            window.scrollTo(0, 0);
+            resetModalScroll(adminModal);
             applyLogo();
         }
 
         function closeAdminModal() {
             adminModal.classList.add('hidden');
+            adminModal.scrollTop = 0;
             resetForm();
+            renderProducts();
+        }
+
+        function openDeleteProductsModal() {
+            deleteProductsModal.classList.remove('hidden');
+            window.scrollTo(0, 0);
+            resetModalScroll(deleteProductsModal);
+            renderAdminList();
+        }
+
+        function closeDeleteProductsModal() {
+            deleteProductsModal.classList.add('hidden');
+            deleteProductsModal.scrollTop = 0;
             renderProducts();
         }
 
@@ -593,30 +723,96 @@
                 : "text-[10px] font-semibold text-gray-400";
         }
 
+        // --- Selección múltiple para eliminar productos ---
+        let selectedProductIds = new Set();
+
+        function toggleProductSelection(id, checked) {
+            if (checked) selectedProductIds.add(id);
+            else selectedProductIds.delete(id);
+            updateSelectionUI();
+        }
+
+        function toggleSelectAll(checked) {
+            selectedProductIds = checked ? new Set(products.map(p => p.id)) : new Set();
+            renderAdminList();
+        }
+
+        function deleteSelectedProducts() {
+            if (selectedProductIds.size === 0) return;
+            if (confirm(`¿Eliminar ${selectedProductIds.size} producto(s) seleccionado(s)? Esta acción no se puede deshacer.`)) {
+                products = products.filter(p => !selectedProductIds.has(p.id));
+                selectedProductIds.clear();
+                saveProductsToStorage();
+                renderAdminList();
+            }
+        }
+
+        function updateSelectionUI() {
+            const count = selectedProductIds.size;
+            document.getElementById('selectionCountLabel').textContent = `${count} producto(s) seleccionado(s)`;
+            document.getElementById('deleteSelectedBtn').disabled = count === 0;
+            document.getElementById('selectAllCheckbox').checked = count > 0 && count === products.length;
+        }
+
+        function toggleProductVisibility(id) {
+            const product = products.find(p => p.id === id);
+            if (product) {
+                product.visible = product.visible === false ? true : false;
+                saveProductsToStorage();
+                renderAdminList();
+                renderProducts();
+            }
+        }
+
         function renderAdminList() {
             updateStorageUsageLabel();
             adminProductList.innerHTML = '';
+
+            if (products.length === 0) {
+                adminProductList.innerHTML = `<p class="text-xs text-gray-400 text-center py-6">No hay productos en el inventario.</p>`;
+                updateSelectionUI();
+                return;
+            }
+
             products.forEach(product => {
                 const item = document.createElement('div');
-                item.className = "flex items-center justify-between p-3 bg-white rounded-xl border border-gray-200 text-sm";
+                const isChecked = selectedProductIds.has(product.id);
+                const isHidden = product.visible === false;
+
+                item.className = "flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 p-3 bg-white rounded-xl border text-sm " +
+                    (isHidden ? "border-gray-300 bg-gray-50 opacity-60" : "border-gray-200");
+
                 const thumb = product.image
                     ? `<div class="w-9 h-9 rounded-lg overflow-hidden flex-shrink-0"><img src="${product.image}" class="w-full h-full object-cover" alt="${product.name}"></div>`
                     : `<div class="w-9 h-9 rounded-lg bg-forest-sage text-forest flex items-center justify-center text-sm flex-shrink-0"><i class="fa-solid ${product.icon || 'fa-leaf'}"></i></div>`;
+
+                let stockBadge = '';
+                if (product.stock !== undefined && product.stock !== null && product.stock !== '') {
+                    stockBadge = `<span class="px-1.5 py-0.5 rounded-md text-[10px] font-bold bg-forest-sage/60 text-forest">Stock: ${Number(product.stock)}</span>`;
+                }
+                const hiddenBadge = isHidden ? `<span class="px-1.5 py-0.5 rounded-md text-[10px] font-bold bg-gray-200 text-gray-600 ml-1"><i class="fa-solid fa-eye-slash mr-1"></i>Oculto del catálogo</span>` : '';
+
                 item.innerHTML = `
-                    <div class="flex items-center space-x-3">
+                    <div class="flex items-center space-x-3 min-w-0">
+                        <input type="checkbox" onchange="toggleProductSelection(${product.id}, this.checked)" ${isChecked ? 'checked' : ''} class="w-4 h-4 flex-shrink-0">
                         ${thumb}
-                        <div>
-                            <h5 class="font-bold text-forest">${product.name}</h5>
-                            <p class="text-xs text-gray-500">${product.category} • <span class="text-gold-dark font-semibold">${product.price}</span></p>
+                        <div class="min-w-0">
+                            <h5 class="font-bold text-forest truncate">${product.name}</h5>
+                            <p class="text-xs text-gray-500 truncate">${product.category} • <span class="text-gold-dark font-semibold">${product.price}</span></p>
+                            <div class="mt-1 flex flex-wrap gap-1">${stockBadge}${hiddenBadge}</div>
                         </div>
                     </div>
-                    <div class="flex items-center space-x-2">
+                    <div class="flex items-center space-x-2 flex-shrink-0 self-end sm:self-auto">
+                        <button onclick="toggleProductVisibility(${product.id})" title="${isHidden ? 'Mostrar en catálogo' : 'Ocultar del catálogo'}" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${isHidden ? 'bg-green-50 hover:bg-green-500 text-green-600 hover:text-white' : 'bg-gray-100 hover:bg-gray-500 text-gray-600 hover:text-white'}">
+                            <i class="fa-solid ${isHidden ? 'fa-eye' : 'fa-eye-slash'}"></i>
+                        </button>
                         <button onclick="editProduct(${product.id})" class="px-3 py-1.5 bg-forest/10 hover:bg-forest text-forest hover:text-white rounded-lg text-xs font-semibold transition-colors">Editar</button>
                         <button onclick="deleteProduct(${product.id})" class="px-3 py-1.5 bg-red-50 hover:bg-red-500 text-red-600 hover:text-white rounded-lg text-xs font-semibold transition-colors">Eliminar</button>
                     </div>
                 `;
                 adminProductList.appendChild(item);
             });
+            updateSelectionUI();
         }
 
         function handleProductImageUpload(event) {
@@ -663,18 +859,21 @@
             const name = document.getElementById('prodName').value;
             const category = document.getElementById('prodCategory').value;
             const price = document.getElementById('prodPrice').value;
+            const stockRaw = document.getElementById('prodStock').value;
+            const stock = stockRaw === '' ? null : Number(stockRaw);
             const icon = document.getElementById('prodIcon').value || 'fa-capsules';
             const image = document.getElementById('prodImage').value;
             const description = document.getElementById('prodDesc').value;
+            const visible = document.getElementById('prodVisible').checked;
 
             if (id) {
                 const index = products.findIndex(p => p.id == id);
                 if (index !== -1) {
-                    products[index] = { id: Number(id), name, category, price, icon, image, description };
+                    products[index] = { id: Number(id), name, category, price, stock, icon, image, description, visible };
                 }
             } else {
                 const newId = products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1;
-                products.push({ id: newId, name, category, price, icon, image, description });
+                products.push({ id: newId, name, category, price, stock, icon, image, description, visible });
             }
 
             saveProductsToStorage();
@@ -689,18 +888,28 @@
                 document.getElementById('prodName').value = product.name;
                 document.getElementById('prodCategory').value = product.category;
                 document.getElementById('prodPrice').value = product.price;
+                document.getElementById('prodStock').value = (product.stock === undefined || product.stock === null) ? '' : product.stock;
                 document.getElementById('prodIcon').value = product.icon || 'fa-capsules';
                 document.getElementById('prodDesc').value = product.description;
                 document.getElementById('prodImage').value = product.image || '';
                 document.getElementById('prodImageInput').value = '';
+                document.getElementById('prodVisible').checked = product.visible !== false;
                 setProductImagePreview(product.image || null);
                 document.getElementById('saveBtn').textContent = "Actualizar Producto";
+
+                // Si se editó desde el panel de Eliminar Productos, cambia al panel de Admin
+                // (que es donde vive el formulario) para poder modificarlo.
+                if (!deleteProductsModal.classList.contains('hidden')) {
+                    deleteProductsModal.classList.add('hidden');
+                    openAdminModal();
+                }
             }
         }
 
         function deleteProduct(id) {
             if (confirm("¿Estás seguro de eliminar este producto del inventario?")) {
                 products = products.filter(p => p.id !== id);
+                selectedProductIds.delete(id);
                 saveProductsToStorage();
                 renderAdminList();
             }
@@ -710,8 +919,10 @@
             document.getElementById('productForm').reset();
             document.getElementById('editProductId').value = "";
             document.getElementById('prodIcon').value = "fa-capsules";
+            document.getElementById('prodStock').value = "";
             document.getElementById('prodImage').value = "";
             document.getElementById('prodImageInput').value = "";
+            document.getElementById('prodVisible').checked = true;
             setProductImagePreview(null);
             document.getElementById('saveBtn').textContent = "Guardar Producto";
         }
