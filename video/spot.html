@@ -1,0 +1,72 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#113326}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;
+ background:radial-gradient(120% 80% at 50% 20%,#24664F 0%,#1A4D3A 45%,#0d2a1f 100%);
+ font-family:'Liberation Sans',Arial,sans-serif;color:#F9F8F3}
+.serif{font-family:'Liberation Serif','Times New Roman',serif}
+.scene{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 90px;opacity:0}
+.big{font-size:128px;line-height:1.08;font-weight:700}
+.mid{font-size:76px;line-height:1.15;font-weight:700}
+.sm{font-size:44px;line-height:1.35;color:#E2ECE8;letter-spacing:.5px}
+.gold{color:#E5C482}
+.tag{font-size:34px;letter-spacing:8px;text-transform:uppercase;color:#C5A059;font-weight:700}
+.rule{width:180px;height:4px;background:#C5A059;margin:46px auto}
+.card{width:820px;padding:44px 50px;margin:22px 0;border:2px solid rgba(197,160,89,.6);border-radius:30px;background:rgba(249,248,243,.07);text-align:left;display:flex;align-items:center;gap:40px;opacity:0}
+.card i{font-size:70px;font-style:normal}
+.card b{font-size:56px;font-family:'Liberation Serif',serif;display:block}
+.card span{font-size:34px;color:#E2ECE8}
+.strike{position:relative;display:inline-block}
+.strike:after{content:"";position:absolute;left:-8px;top:52%;height:12px;width:var(--w,0%);background:#C5A059;border-radius:6px}
+.logo{width:260px;height:260px;border-radius:50%;border:6px solid #C5A059;background:#F9F8F3;color:#1A4D3A;display:flex;align-items:center;justify-content:center;font-size:120px;font-weight:700;font-family:'Liberation Serif',serif;margin-bottom:50px}
+.wa{display:inline-block;background:#F9F8F3;color:#1A4D3A;padding:34px 60px;border-radius:80px;font-size:62px;font-weight:700;margin-top:50px}
+.legal{position:absolute;bottom:90px;left:0;right:0;text-align:center;font-size:28px;color:#b9cfc5;padding:0 90px}
+.leaf{position:absolute;opacity:.16}
+</style></head><body><div id="stage">
+<div id="leaves"></div>
+<div class="scene" id="s1"><div class="big serif">¿Te han<br>prometido<br><span class="strike gold" id="mil">milagros</span><br>en un frasco?</div></div>
+<div class="scene" id="s2"><div class="big serif">Aquí no.</div><div class="rule"></div><div class="mid serif gold" id="s2b">Aquí te explicamos.</div></div>
+<div class="scene" id="s3">
+ <div class="tag" id="s3t">Espacio Natural de Yusef</div><div class="rule" style="margin:30px auto 40px"></div>
+ <div class="card" id="c1"><i>🌿</i><div><b>Suplementos</b><span>Seleccionados con responsabilidad</span></div></div>
+ <div class="card" id="c2"><i>🍵</i><div><b>Herbolaria y tés</b><span>Explicados sin tecnicismos</span></div></div>
+ <div class="card" id="c3"><i>💊</i><div><b>Vitaminas y minerales</b><span>Información clara y transparente</span></div></div>
+ <div class="card" id="c4"><i>🌱</i><div><b>Orgánicos</b><span>Producto verificable en persona</span></div></div>
+ <div class="sm" id="s3b" style="margin-top:50px;opacity:0">Escuchamos primero.</div>
+</div>
+<div class="scene" id="s4"><div class="tag" id="s4a">San Dionisio Ocotepec · Oaxaca</div><div class="rule"></div>
+ <div class="mid serif" id="l1">En tu comunidad.</div><div class="mid serif gold" id="l2" style="margin-top:30px">Sin viajar.</div><div class="mid serif" id="l3" style="margin-top:30px">Precios accesibles.</div></div>
+<div class="scene" id="s5"><div class="logo">EN</div>
+ <div class="mid serif">Espacio Natural<br><span class="gold">de Yusef</span></div><div class="rule"></div>
+ <div class="sm serif" style="font-size:50px;font-style:italic">Salud natural, con confianza.</div>
+ <div class="wa" id="wa">WhatsApp 962 105 8115</div>
+ <div class="sm" style="margin-top:36px;font-size:36px">Consulta disponibilidad antes de tu visita</div></div>
+<div class="legal" id="legal" style="opacity:0">Los productos no sustituyen la orientación de un profesional de la salud.</div>
+</div>
+<script>
+const L=document.getElementById('leaves');
+const leaves=[];
+for(let i=0;i<14;i++){const e=document.createElement('div');e.className='leaf';
+ e.innerHTML='<svg width="160" height="160" viewBox="0 0 100 100"><path d="M50 95C20 70 10 40 50 5c40 35 30 65 0 90z" fill="#E5C482"/><path d="M50 95V20" stroke="#113326" stroke-width="3" fill="none"/></svg>';
+ L.appendChild(e);leaves.push({e,x:(i*173)%1080,y:(i*331)%1920,s:.5+((i*7)%10)/10,sp:30+(i*13)%40,r:(i*47)%360,sw:20+(i*11)%40});}
+const $=id=>document.getElementById(id);
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const ease=x=>1-Math.pow(1-cl(x),3);
+// fade in at a, hold, fade out at b ; returns opacity
+function win(t,a,b,fi=.5,fo=.5){return cl((t-a)/fi)*cl((b-t)/fo)}
+function setT(t){
+ leaves.forEach(l=>{const y=((l.y-t*l.sp)%2100+2100)%2100-90;l.e.style.transform=`translate(${l.x+Math.sin(t+l.r)*l.sw}px,${y}px) rotate(${l.r+t*12}deg) scale(${l.s})`;});
+ const S=(id,a,b,fi,fo)=>{const o=win(t,a,b,fi,fo);const e=$(id);e.style.opacity=o;e.style.transform=`translateY(${(1-ease((t-a)/(fi||.5)))*40}px)`};
+ S('s1',0,3.2,.5,.4);$('mil').style.setProperty('--w',(ease((t-1.9)/.7)*104)+'%');
+ S('s2',3.2,8,.4,.5);$('s2b').style.opacity=cl((t-4.6)/.6);
+ S('s3',8,18.2,.5,.5);
+ ['c1','c2','c3','c4'].forEach((id,i)=>{const a=9+i*1.4;const e=$(id);e.style.opacity=cl((t-a)/.5);e.style.transform=`translateX(${(1-ease((t-a)/.6))*-120}px)`});
+ $('s3b').style.opacity=cl((t-15.4)/.6);
+ S('s4',18,24.2,.5,.5);
+ $('l1').style.opacity=cl((t-18.8)/.5);$('l2').style.opacity=cl((t-20.2)/.5);$('l3').style.opacity=cl((t-21.6)/.5);
+ S('s5',24,30.1,.6,.01);
+ $('wa').style.transform=`scale(${1+0.04*Math.sin(t*6)*cl((t-26)/.5)})`;
+ $('legal').style.opacity=cl((t-27.5)/.5);
+}
+setT(0);
+</script></body></html>
